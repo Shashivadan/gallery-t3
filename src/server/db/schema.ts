@@ -24,6 +24,8 @@ export const posts = createTable(
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
     url: varchar("url", { length: 1024 }),
+    userId: varchar("userId", { length: 1024 }),
+    // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
